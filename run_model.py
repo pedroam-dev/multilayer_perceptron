@@ -3,6 +3,7 @@ import matplotlib.pyplot as plt
 from sklearn.model_selection import train_test_split
 from sklearn.datasets import fetch_openml
 import time
+import os
 
 from MLP_mod import NeuralNetMLP
 from batch_generator_mod import minibatch_generator
@@ -119,6 +120,10 @@ def run_experiment(experiment_config, X_train, X_valid, X_test, y_train, y_valid
 
 def plot_results(experiments_results, save_plots=True):
     """Genera gráficas de los resultados"""
+
+    # Crear directorio para figuras si no existe
+    os.makedirs('figures', exist_ok=True)
+
     
     # Plot accuracy
     fig, axes = plt.subplots(2, 4, figsize=(20, 10))
