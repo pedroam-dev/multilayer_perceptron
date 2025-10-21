@@ -97,18 +97,18 @@ def load_movie_reviews(file_path='dataset/test.csv'):
         print(f"Columnas: {list(df.columns)}")
         
         # Mostrar distribución de clases
-        print(f"Distribución de sentimientos:")
-        print(df['sentiment'].value_counts())
+        print(f"Distribución de reseñas:")
+        print(df['review'].value_counts())
         
         # Convertir labels a números
         label_map = {'pos': 1, 'neg': 0}
-        df['sentiment_num'] = df['sentiment'].map(label_map)
+        df['review_num'] = df['review'].map(label_map)
         
         # Verificar que no hay valores nulos
         print(f"Valores nulos en text: {df['text'].isnull().sum()}")
-        print(f"Valores nulos en sentiment: {df['sentiment'].isnull().sum()}")
+        print(f"Valores nulos en review: {df['review'].isnull().sum()}")
         
-        return df['text'].values, df['sentiment_num'].values, df
+        return df['text'].values, df['review_num'].values, df
         
     except Exception as e:
         print(f"Error cargando el dataset: {e}")
