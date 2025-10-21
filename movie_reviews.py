@@ -188,14 +188,14 @@ def analyze_results(data, model, train_metrics, valid_metrics, test_results, bes
     plot_training_curves(
         train_metrics, valid_metrics,
         title=f"Entrenamiento - {best_params['activation']} - {best_params['num_hidden']} neuronas",
-        save_path='figures/sentiment_training_curves.png'
+        save_path='figures/review_training_curves.png'
     )
     
     # 2. Matriz de confusión en test
     plot_confusion_matrix(
         test_results['targets'], test_results['predictions'],
         title="Matriz de Confusión - Conjunto de Test",
-        save_path='figures/sentiment_confusion_matrix.png'
+        save_path='figures/review_confusion_matrix.png'
     )
     
     # 3. Reporte de clasificación
