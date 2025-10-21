@@ -1,8 +1,8 @@
-# Multilayer Perceptron (MLP) - Clasificación MNIST y Análisis de Sentimientos
+# Multilayer Perceptron (MLP) - Clasificación MNIST y análisis de reseñas
 
 Este proyecto implementa un perceptrón multicapa desde cero para dos tareas principales:
 1. **Clasificación de dígitos manuscritos** del dataset MNIST (clasificación multiclase)
-2. **Análisis de sentimientos** en reseñas de películas (clasificación binaria)
+2. **Análisis de reseñas** en reseñas de películas (clasificación binaria)
 
 El proyecto incluye experimentos exhaustivos con diferentes funciones de activación, técnicas de regularización, y optimización del learning rate.
 
@@ -47,12 +47,11 @@ multilayer_perceptron/
 │   ├── run_model.py                   # Script principal de experimentos MNIST
 │   └── adaptive_lr_experiments.py     # Experimentos con LR adaptativo
 │
-├── 📁 Análisis de Sentimientos (Binario)
+├── 📁 Análisis de reseñas (Binario)
 │   ├── MLP_binary.py                  # MLP para clasificación binaria
 │   ├── text_processor.py              # Procesamiento de texto y BOW
 │   ├── metrics_binary.py              # Métricas especializadas binarias
-│   ├── movie_sentiment.py             # Script principal de sentimientos
-│   └── quick_sentiment_test.py        # Test rápido simplificado
+│   ├── movie_review.py             # Script principal de reseñas
 │
 ├── 📁 Datos
 │   └── dataset/
@@ -63,9 +62,8 @@ multilayer_perceptron/
 │       ├── accuracy_comparison.png    # Comparación de accuracy MNIST
 │       ├── loss_comparison.png        # Comparación de loss MNIST
 │       ├── lr_comparison_*.png        # Comparación de learning rates
-│       ├── sentiment_training_curves.png  # Curvas de entrenamiento sentimientos
-│       ├── sentiment_confusion_matrix.png # Matriz de confusión
-│       └── sentiment_results.png      # Resultados completos sentimientos
+│       ├── review_training_curves.png  # Curvas de entrenamiento reseñas
+│       ├── review_confusion_matrix.png # Matriz de confusión
 │
 └── __pycache__/                       # Archivos compilados de Python
 ```
@@ -134,13 +132,13 @@ python adaptive_lr_experiments.py
 python train.py
 ```
 
-### Ejecución análisis de sentimientos
+### Ejecución análisis de reseñas
 ```bash
 # Test rápido (recomendado para empezar)
-python quick_sentiment_test.py
+python quick_review_test.py
 
 # Búsqueda completa de hiperparámetros (más lento)
-python movie_sentiment.py
+python movie_review.py
 ```
 
 ## Funciones de activación implementadas
@@ -172,7 +170,7 @@ f'(x) = f(x) * (1 - f(x))
 - **Curvas de aprendizaje**: Evolución de accuracy y loss por época
 - **Learning rate evolution**: Seguimiento del LR adaptativo
 
-### Sentimientos (Binario)
+### Reseñas (Binario)
 - **Accuracy**: Porcentaje de predicciones correctas
 - **Precision**: Verdaderos positivos / (Verdaderos + Falsos positivos)
 - **Recall**: Verdaderos positivos / (Verdaderos positivos + Falsos negativos)
@@ -250,11 +248,11 @@ Los experimentos permiten analizar:
    - Mejor accuracy final
    - Reducción de oscilaciones en el entrenamiento
 
-### 🎬 Experimentos Sentimientos
+### 🎬 Experimentos reseñas
 
 1. **Procesamiento de texto**:
    - Importancia del tamaño del vocabulario
-   - Efectividad de BOW para sentimientos
+   - Efectividad de BOW para reseñas
    - Limpieza de texto mejora resultados
 
 2. **Arquitectura óptima**:
@@ -269,7 +267,7 @@ Los experimentos permiten analizar:
 
 ### Métricas típicas esperadas
 - **MNIST**: 85-95% accuracy (dependiendo de configuración)
-- **Sentimientos**: 70-85% accuracy (dependiendo de dataset y preprocesamiento)
+- **Reseñas**: 70-85% accuracy (dependiendo de dataset y preprocesamiento)
 
 ## Archivos principales
 
@@ -281,12 +279,11 @@ Los experimentos permiten analizar:
 - `run_model.py`: Script principal para experimentos básicos
 - `adaptive_lr_experiments.py`: Experimentos con learning rate adaptativo
 
-### Implementación sentimientos
+### Implementación reseña
 - `MLP_binary.py`: Red neuronal para clasificación binaria
 - `text_processor.py`: Procesamiento de texto y creación de BOW
 - `metrics_binary.py`: Métricas especializadas para clasificación binaria
-- `movie_sentiment.py`: Script principal con búsqueda de hiperparámetros
-- `quick_sentiment_test.py`: Test rápido simplificado
+- `movie_review.py`: Script principal con búsqueda de hiperparámetros
 
 ### Scripts de soporte
 - `batch_generator_mod.py`: Generación de mini-batches optimizada
@@ -298,7 +295,7 @@ Los experimentos permiten analizar:
 2. **Comparar** diferentes funciones de activación (ReLU, LeakyReLU, Sigmoid)
 3. **Evaluar** el impacto de la estandarización de datos
 4. **Analizar** el efecto de diferentes learning rates (estático vs adaptativo)
-5. **Desarrollar** sistema de clasificación binaria para análisis de sentimientos
+5. **Desarrollar** sistema de clasificación binaria para análisis de reseñas
 6. **Optimizar** hiperparámetros automáticamente
 7. **Visualizar** curvas de aprendizaje y métricas
 8. **Generar** análisis comparativo de resultados
